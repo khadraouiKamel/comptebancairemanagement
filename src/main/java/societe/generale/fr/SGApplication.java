@@ -15,6 +15,8 @@ public class SGApplication {
         compte.verser(1000, new SimpleDateFormat("dd/MM/yyyy").parse("10/01/2012"));
         compte.verser(2000, new SimpleDateFormat("dd/MM/yyyy").parse("13/01/2012"));
         compte.retrait(500, new SimpleDateFormat("dd/MM/yyyy").parse("14/01/2012"));
+
+        compte.imprimerLignesReleve(System.out);
     }
 
 }

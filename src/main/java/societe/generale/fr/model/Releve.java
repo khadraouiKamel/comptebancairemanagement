@@ -13,4 +13,8 @@ public class Releve {
         lignesReleve.add(index, new LigneReleve(op, date, montant, soldActuel));
     }
 
+    //Getter
+    public List<LigneReleve> getLignesReleve() {
+        return lignesReleve;
+    }
 }

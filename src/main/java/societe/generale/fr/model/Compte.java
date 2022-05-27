@@ -1,6 +1,7 @@
 package societe.generale.fr.model;
 
 
+import java.io.PrintStream;
 import java.util.Date;
 
 public class Compte {
@@ -34,7 +35,12 @@ public class Compte {
         releve.ajouterLigneTransaction(op, date, montant, this.solde);
     }
 
-    public void imprimerLignesReleve() {
+    public void imprimerLignesReleve(PrintStream printer) {
+        String enteteReleve = String.format("%1$-" + 10 + "s", "Operation").concat("| ")+String.format("%1$-" + 12 + "s", "Date").concat("| ")+String.format("%1$-" + 10 + "s", "Montant").concat("| Solde");
+        printer.println(enteteReleve);
+        for (LigneReleve ligneReleve : releve.getLignesReleve()) {
+            ligneReleve.toStringBuilder(printer);
+        }
     }
 
 }

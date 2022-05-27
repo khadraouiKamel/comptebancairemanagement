@@ -1,5 +1,6 @@
 package societe.generale.fr.model;
 
+import java.io.PrintStream;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,5 +23,14 @@ public class LigneReleve {
         this.soldActuel = soldActuel;
     }
 
+    public void toStringBuilder(PrintStream printer){
 
+        StringBuilder builder = new StringBuilder();
+        builder.append(String.format("%1$-" + 10 + "s", this.op)).append("| ");
+        builder.append(String.format("%1$-" + 12 + "s", sdf.format(this.dateTransaction))).append("| ");
+        builder.append(String.format("%1$-" + 10 + "s", decimalMontantFormat.format(this.montant))).append("| ");
+        builder.append(decimalMontantFormat.format(this.soldActuel));
+        printer.println(builder.toString());
+
+    }
 }
