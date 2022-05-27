@@ -32,7 +32,7 @@ public class CompteTest {
 
     @Test
     public void ajout_ligne_depot_to_releve() throws ParseException {
-        Date dateDepot = new SimpleDateFormat("dd/MM/yyyy").parse("10/01/2012");
+        Date dateDepot = new SimpleDateFormat("dd/MM/yyyy").parse("25/05/2022");
 
         compte.verser(1000, dateDepot);
 

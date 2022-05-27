@@ -22,22 +22,22 @@ public class LingeReleveTest {
 
     @Test
     public void imprimer_lui_meme() throws ParseException {
-        Date dateDepot = new SimpleDateFormat("dd/MM/yyyy").parse("10/01/2012");
+        Date dateDepot = new SimpleDateFormat("dd/MM/yyyy").parse("25/05/2022");
         LigneReleve ligneReleve = new LigneReleve(TypeOperation.VERSER,dateDepot,1000, 1000);
 
         ligneReleve.toStringBuilder(printer);
 
-        verify(printer).println("VERSER    | 10/01/2012  | 1000.00   | 1000.00");
+        verify(printer).println("VERSER    | 25/05/2022  | 1000.00   | 1000.00");
     }
 
     @Test
     public void imprimer_retrait() throws ParseException {
-        Date dateRetrait = new SimpleDateFormat("dd/MM/yyyy").parse("14/01/2012");
+        Date dateRetrait = new SimpleDateFormat("dd/MM/yyyy").parse("27/05/2022");
         LigneReleve ligneReleve = new LigneReleve(TypeOperation.RETRAIT,dateRetrait,500, 500);
 
         ligneReleve.toStringBuilder(printer);
 
-        verify(printer).println("RETRAIT   | 14/01/2012  | 500.00    | 500.00");
+        verify(printer).println("RETRAIT   | 27/05/2022  | 500.00    | 500.00");
     }
 
 }

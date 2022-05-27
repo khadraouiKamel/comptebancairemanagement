@@ -40,33 +40,33 @@ public class ReleveTest {
 
     @Test
     public void imprimer_depot() throws ParseException {
-        Date dateDepot = new SimpleDateFormat("dd/MM/yyyy").parse("10/01/2012");
+        Date dateDepot = new SimpleDateFormat("dd/MM/yyyy").parse("25/05/2022");
         releve.ajouterLigneTransaction(TypeOperation.VERSER,dateDepot,1000, 1000);
         compte.imprimerLignesReleve(printer);
-        verify(printer).println("VERSER    | 10/01/2012  | 1000.00   | 1000.00");
+        verify(printer).println("VERSER    | 25/05/2022  | 1000.00   | 1000.00");
     }
 
     @Test public void imprimer_retrait() throws ParseException {
-        Date dateRetrait = new SimpleDateFormat("dd/MM/yyyy").parse("14/01/2012");
+        Date dateRetrait = new SimpleDateFormat("dd/MM/yyyy").parse("27/05/2022");
         releve.ajouterLigneTransaction(TypeOperation.RETRAIT,dateRetrait,500, 500);
         compte.imprimerLignesReleve(printer);
 
-        verify(printer).println("RETRAIT   | 14/01/2012  | 500.00    | 500.00");
+        verify(printer).println("RETRAIT   | 27/05/2022  | 500.00    | 500.00");
     }
 
     @Test
     public void imprimer_deux_depots_order_inverser() throws ParseException {
 
-        Date dateDepot1 = new SimpleDateFormat("dd/MM/yyyy").parse("10/01/2012");
-        Date dateDepot2 = new SimpleDateFormat("dd/MM/yyyy").parse("13/01/2012");
+        Date dateDepot1 = new SimpleDateFormat("dd/MM/yyyy").parse("25/05/2022");
+        Date dateDepot2 = new SimpleDateFormat("dd/MM/yyyy").parse("26/05/2022");
         releve.ajouterLigneTransaction(TypeOperation.VERSER,dateDepot1,1000, 1000);
         releve.ajouterLigneTransaction(TypeOperation.VERSER,dateDepot2,2000, 3000);
 
         compte.imprimerLignesReleve(printer);
 
         InOrder inOrder = Mockito.inOrder(printer);
-        inOrder.verify(printer).println("VERSER    | 13/01/2012  | 2000.00   | 3000.00");
-        inOrder.verify(printer).println("VERSER    | 10/01/2012  | 1000.00   | 1000.00");
+        inOrder.verify(printer).println("VERSER    | 26/05/2022  | 2000.00   | 3000.00");
+        inOrder.verify(printer).println("VERSER    | 25/05/2022  | 1000.00   | 1000.00");
 
     }
 
