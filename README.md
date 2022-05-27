@@ -1,7 +1,7 @@
 Gestion compte bancaire
 =======================
 
-## Le contexte d'exercice
+## Le contexte de l'exercice
 ------------------------
 Pensez à votre expérience de compte bancaire personnel, en cas de doute, optez pour la solution la plus simple
 
