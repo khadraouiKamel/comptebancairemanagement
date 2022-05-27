@@ -43,4 +43,9 @@ public class Compte {
         }
     }
 
+    //Setter solde pour test unitaire de la methode retrait
+    public void setSolde(int solde) {
+        this.solde = solde;
+    }
+
 }
